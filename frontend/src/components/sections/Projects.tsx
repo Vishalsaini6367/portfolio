@@ -50,7 +50,7 @@ export default function ProjectsSection() {
 
     useEffect(() => {
         // Optionally fetch from the actual API endpoint /api/projects
-        fetch('http://localhost:5000/api/projects')
+        fetch('http://localhost:5005/api/projects')
             .then(res => res.json())
             .then(data => {
                 if (data && data.length > 0) {
