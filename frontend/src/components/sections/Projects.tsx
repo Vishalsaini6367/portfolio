@@ -49,21 +49,19 @@ export default function ProjectsSection() {
     ])
 
     useEffect(() => {
-        // Optionally fetch from the actual API endpoint /api/projects
-        if (window.location.hostname === 'localhost') {
-            fetch('http://localhost:5005/api/projects')
-                .then(res => res.json())
-                .then(data => {
-                    if (data && data.length > 0) {
-                        const mapped = data.map((d: any, i: number) => ({
-                            ...d,
-                            tags: projects[i] ? projects[i].tags : ['React', 'Node']
-                        }))
-                        setProjects(mapped)
-                    }
-                })
-                .catch((err) => console.log('Using static projects data...', err))
-        }
+        // Fetch from the actual API endpoint /api/projects
+        fetch('/api/projects')
+            .then(res => res.json())
+            .then(data => {
+                if (data && data.length > 0) {
+                    const mapped = data.map((d: any, i: number) => ({
+                        ...d,
+                        tags: projects[i] ? projects[i].tags : ['React', 'Node']
+                    }))
+                    setProjects(mapped)
+                }
+            })
+            .catch((err) => console.log('Using static projects data...', err))
     }, [])
 
     return (
