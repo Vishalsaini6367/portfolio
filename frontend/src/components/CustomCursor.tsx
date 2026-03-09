@@ -7,8 +7,16 @@ export default function CustomCursor() {
     const [position, setPosition] = useState({ x: -100, y: -100 })
     const [clicked, setClicked] = useState(false)
     const [linkHovered, setLinkHovered] = useState(false)
+    const [isTouchDevice, setIsTouchDevice] = useState(false)
 
     useEffect(() => {
+        // Hide cursor on touch/mobile devices
+        setIsTouchDevice(window.matchMedia("(pointer: coarse)").matches)
+    }, [])
+
+    useEffect(() => {
+        if (isTouchDevice) return
+
         const handleMouseMove = (e: MouseEvent) => {
             setPosition({ x: e.clientX, y: e.clientY })
         }
@@ -18,7 +26,6 @@ export default function CustomCursor() {
 
         const handleMouseOver = (e: MouseEvent) => {
             const target = e.target as HTMLElement
-            // detect if hovering over interactive elements
             if (
                 target.tagName.toLowerCase() === "a" ||
                 target.tagName.toLowerCase() === "button" ||
@@ -43,7 +50,10 @@ export default function CustomCursor() {
             document.removeEventListener("mouseup", handleMouseUp)
             document.removeEventListener("mouseover", handleMouseOver)
         }
-    }, [])
+    }, [isTouchDevice])
+
+    // Don't render on touch/mobile screens
+    if (isTouchDevice) return null
 
     return (
         <>

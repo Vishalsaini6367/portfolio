@@ -8,12 +8,12 @@ import SkillsSection from "@/components/sections/Skills"
 import ProjectsSection from "@/components/sections/Projects"
 import EducationSection from "@/components/sections/Education"
 import ContactSection from "@/components/sections/Contact"
+import Navbar from "@/components/Navbar"
 
 export default function Home() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Simulate page loader
     const timer = setTimeout(() => setLoading(false), 2000)
     return () => clearTimeout(timer)
   }, [])
@@ -37,24 +37,30 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* Progress Bar globally on top */}
+      {/* Scroll progress bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00f3ff] to-[#9d00ff] z-50 origin-left"
+        className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#00f3ff] to-[#9d00ff] z-50 origin-left"
         initial={{ scaleX: 0 }}
         whileInView={{ scaleX: 1 }}
         viewport={{ once: false }}
         transition={{ duration: 0.1 }}
       />
 
-      <HeroSection />
-      <AboutSection />
-      <SkillsSection />
-      <ProjectsSection />
-      <EducationSection />
-      <ContactSection />
+      {/* Navbar - sits above everything */}
+      <Navbar />
 
-      <footer className="py-8 text-center text-gray-600 border-t border-white/5">
-        <p>© {new Date().getFullYear()} Vishal Saini. Built with Next.js & Framer Motion.</p>
+      {/* All sections - add top padding so content isn't hidden under navbar */}
+      <div className="pt-0">
+        <HeroSection />
+        <AboutSection />
+        <SkillsSection />
+        <ProjectsSection />
+        <EducationSection />
+        <ContactSection />
+      </div>
+
+      <footer className="py-6 sm:py-8 text-center text-gray-600 border-t border-white/5 text-sm px-4">
+        <p>© {new Date().getFullYear()} Vishal Saini. Built with Next.js &amp; Framer Motion.</p>
       </footer>
     </main>
   )

@@ -39,8 +39,8 @@ export default function ContactSection() {
     }
 
     return (
-        <section id="contact" className="py-24 px-6 min-h-[80vh] flex items-center relative">
-            <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 relative z-10">
+        <section id="contact" className="py-16 sm:py-24 px-4 sm:px-6 min-h-[80vh] flex items-center relative">
+            <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 relative z-10">
 
                 {/* Left Side Info */}
                 <motion.div
@@ -50,39 +50,39 @@ export default function ContactSection() {
                     transition={{ duration: 0.8 }}
                     className="flex flex-col justify-center"
                 >
-                    <h2 className="text-4xl md:text-6xl font-bold mb-6 neon-text">Let's Connect</h2>
-                    <p className="text-gray-400 text-lg mb-12 max-w-md">
+                    <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 sm:mb-6 neon-text">Let's Connect</h2>
+                    <p className="text-gray-400 text-base sm:text-lg mb-8 sm:mb-12 max-w-md">
                         I'm currently looking for new opportunities and always open to discussing web development, AI, cloud computing, and more.
                     </p>
 
-                    <div className="flex flex-col gap-6">
-                        <a href="tel:6367839332" className="flex items-center gap-4 group p-4 border border-white/5 rounded-2xl w-max hover:border-[#00f3ff] transition-all duration-300">
-                            <div className="p-3 bg-white/5 rounded-full group-hover:bg-[#00f3ff]/20 transition-colors">
-                                <Phone className="text-[#00f3ff]" />
+                    <div className="flex flex-col gap-4">
+                        <a href="tel:6367839332" className="flex items-center gap-4 group p-4 border border-white/5 rounded-2xl hover:border-[#00f3ff] transition-all duration-300 w-full sm:w-max">
+                            <div className="p-3 bg-white/5 rounded-full group-hover:bg-[#00f3ff]/20 transition-colors flex-shrink-0">
+                                <Phone className="text-[#00f3ff]" size={20} />
                             </div>
-                            <div>
+                            <div className="min-w-0">
                                 <p className="text-sm text-gray-500 font-medium">Phone</p>
-                                <p className="text-white font-semibold">6367839332</p>
+                                <p className="text-white font-semibold text-sm sm:text-base">6367839332</p>
                             </div>
                         </a>
 
-                        <a href="mailto:vsaini81724@gmail.com" className="flex items-center gap-4 group p-4 border border-white/5 rounded-2xl w-max hover:border-[#9d00ff] transition-all duration-300">
-                            <div className="p-3 bg-white/5 rounded-full group-hover:bg-[#9d00ff]/20 transition-colors">
-                                <Mail className="text-[#9d00ff]" />
+                        <a href="mailto:vsaini81724@gmail.com" className="flex items-center gap-4 group p-4 border border-white/5 rounded-2xl hover:border-[#9d00ff] transition-all duration-300 w-full sm:w-max">
+                            <div className="p-3 bg-white/5 rounded-full group-hover:bg-[#9d00ff]/20 transition-colors flex-shrink-0">
+                                <Mail className="text-[#9d00ff]" size={20} />
                             </div>
-                            <div>
+                            <div className="min-w-0">
                                 <p className="text-sm text-gray-500 font-medium">Email</p>
-                                <p className="text-white font-semibold">vsaini81724@gmail.com</p>
+                                <p className="text-white font-semibold text-sm sm:text-base break-all">vsaini81724@gmail.com</p>
                             </div>
                         </a>
 
-                        <a href="https://www.linkedin.com/in/vishal-saini-a0633a3a9" target="_blank" rel="noreferrer" className="flex items-center gap-4 group p-4 border border-white/5 rounded-2xl w-max hover:border-[#00f3ff] transition-all duration-300">
-                            <div className="p-3 bg-white/5 rounded-full group-hover:bg-[#00f3ff]/20 transition-colors">
-                                <Linkedin className="text-[#00f3ff]" />
+                        <a href="https://www.linkedin.com/in/vishal-saini-a0633a3a9" target="_blank" rel="noreferrer" className="flex items-center gap-4 group p-4 border border-white/5 rounded-2xl hover:border-[#00f3ff] transition-all duration-300 w-full sm:w-max">
+                            <div className="p-3 bg-white/5 rounded-full group-hover:bg-[#00f3ff]/20 transition-colors flex-shrink-0">
+                                <Linkedin className="text-[#00f3ff]" size={20} />
                             </div>
-                            <div>
+                            <div className="min-w-0">
                                 <p className="text-sm text-gray-500 font-medium">LinkedIn</p>
-                                <p className="text-white font-semibold flex items-center gap-1 hover:underline">vishal-saini-a0633a3a9 <ExternalLink size={12} /></p>
+                                <p className="text-white font-semibold flex items-center gap-1 hover:underline text-sm sm:text-base">vishal-saini-a0633a3a9 <ExternalLink size={12} /></p>
                             </div>
                         </a>
                     </div>
@@ -94,9 +94,9 @@ export default function ContactSection() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="glass p-8 md:p-12 rounded-3xl border border-white/10"
+                    className="glass p-6 sm:p-8 md:p-12 rounded-3xl border border-white/10"
                 >
-                    <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+                    <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                         <div>
                             <label htmlFor="name" className="block text-sm font-medium text-gray-400 mb-2">Your Name</label>
                             <input
@@ -106,7 +106,7 @@ export default function ContactSection() {
                                 value={formData.name}
                                 onChange={handleChange}
                                 required
-                                className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-[#00f3ff] focus:ring-1 focus:ring-[#00f3ff] transition-all text-white placeholder-gray-600"
+                                className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-[#00f3ff] focus:ring-1 focus:ring-[#00f3ff] transition-all text-white placeholder-gray-600 text-sm sm:text-base"
                                 placeholder="John Doe"
                             />
                         </div>
@@ -120,7 +120,7 @@ export default function ContactSection() {
                                 value={formData.email}
                                 onChange={handleChange}
                                 required
-                                className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-[#00f3ff] focus:ring-1 focus:ring-[#00f3ff] transition-all text-white placeholder-gray-600"
+                                className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-[#00f3ff] focus:ring-1 focus:ring-[#00f3ff] transition-all text-white placeholder-gray-600 text-sm sm:text-base"
                                 placeholder="john@example.com"
                             />
                         </div>
@@ -134,7 +134,7 @@ export default function ContactSection() {
                                 value={formData.message}
                                 onChange={handleChange}
                                 required
-                                className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-[#00f3ff] focus:ring-1 focus:ring-[#00f3ff] transition-all text-white placeholder-gray-600 resize-none"
+                                className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-[#00f3ff] focus:ring-1 focus:ring-[#00f3ff] transition-all text-white placeholder-gray-600 resize-none text-sm sm:text-base"
                                 placeholder="How can we help each other?"
                             />
                         </div>
@@ -142,7 +142,7 @@ export default function ContactSection() {
                         <button
                             type="submit"
                             disabled={status === "loading"}
-                            className="mt-4 interactive relative overflow-hidden group bg-transparent border border-[#00f3ff] text-[#00f3ff] rounded-xl px-6 py-4 font-semibold flex items-center justify-center gap-2 hover:text-black transition-colors duration-300"
+                            className="mt-2 interactive relative overflow-hidden group bg-transparent border border-[#00f3ff] text-[#00f3ff] rounded-xl px-6 py-4 font-semibold flex items-center justify-center gap-2 hover:text-black transition-colors duration-300"
                         >
                             <div className="absolute inset-0 w-full h-full bg-[#00f3ff] transform scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out z-0"></div>
                             <span className="relative z-10 flex items-center justify-center gap-2">

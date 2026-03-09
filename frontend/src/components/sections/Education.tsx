@@ -12,7 +12,6 @@ export default function EducationSection() {
         offset: ["start center", "end center"],
     })
 
-    // Animate the line drawing down
     const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1])
 
     const educationList = [
@@ -37,52 +36,56 @@ export default function EducationSection() {
     ]
 
     return (
-        <section id="education" className="min-h-[80vh] py-24 px-6 relative" ref={containerRef}>
+        <section id="education" className="min-h-[80vh] py-16 sm:py-24 px-4 sm:px-6 relative" ref={containerRef}>
             <div className="max-w-4xl mx-auto relative">
                 <motion.h2
                     initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-4xl md:text-5xl font-bold mb-16 text-center text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] tracking-tight"
+                    className="text-3xl sm:text-4xl md:text-5xl font-bold mb-12 sm:mb-16 text-center text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.2)] tracking-tight"
                 >
                     My Journey
                 </motion.h2>
 
-                <div className="relative pl-8 md:pl-0">
-                    {/* Animated timeline line */}
+                {/* Mobile: simple left-aligned timeline */}
+                <div className="relative">
+                    {/* The vertical line */}
                     <motion.div
                         style={{ scaleY }}
-                        className="absolute left-0 md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-[#00f3ff] via-[#9d00ff] to-transparent origin-top md:-translate-x-[1px]"
+                        className="absolute left-4 sm:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-[#00f3ff] via-[#9d00ff] to-transparent origin-top sm:-translate-x-[1px]"
                     ></motion.div>
 
-                    <div className="flex flex-col gap-12 md:gap-20 relative z-10 w-full">
+                    <div className="flex flex-col gap-10 sm:gap-16 relative z-10 w-full">
                         {educationList.map((item, index) => {
                             const isEven = index % 2 === 0
                             return (
                                 <motion.div
                                     key={index}
-                                    initial={{ opacity: 0, x: isEven ? -50 : 50 }}
+                                    initial={{ opacity: 0, x: -30 }}
                                     whileInView={{ opacity: 1, x: 0 }}
                                     viewport={{ once: true, margin: "-50px" }}
                                     transition={{ duration: 0.6, type: "spring", bounce: 0.4 }}
-                                    className={`flex flex-col md:flex-row items-center justify-between w-full ${isEven ? 'md:flex-row-reverse' : ''}`}
+                                    className="relative pl-12 sm:pl-0 sm:flex sm:items-center sm:justify-between w-full"
                                 >
-                                    <div className="hidden md:block w-[45%]"></div>
+                                    {/* Dot */}
+                                    <div className="absolute left-[9px] sm:left-1/2 top-6 w-4 h-4 rounded-full bg-white border-4 border-[#00f3ff] sm:-translate-x-1/2 z-20 shadow-[0_0_10px_#00f3ff]"></div>
 
-                                    <div className="absolute left-[-33px] md:left-1/2 w-4 h-4 rounded-full bg-white border-4 border-[#00f3ff] md:-translate-x-1/2 z-20 shadow-[0_0_10px_#00f3ff]"></div>
+                                    {/* Spacer for desktop alternating layout */}
+                                    <div className={`hidden sm:block w-[45%] ${isEven ? 'order-last' : 'order-first'}`}></div>
 
-                                    <div className={`w-full md:w-[45%] glass p-6 rounded-2xl border ${isEven ? 'border-[#00f3ff]/30 hover:border-[#00f3ff]' : 'border-[#9d00ff]/30 hover:border-[#9d00ff]'} transition-colors duration-300 group`}>
+                                    {/* Card */}
+                                    <div className={`w-full sm:w-[45%] glass p-5 sm:p-6 rounded-2xl border ${isEven ? 'border-[#00f3ff]/30 hover:border-[#00f3ff]' : 'border-[#9d00ff]/30 hover:border-[#9d00ff]'} transition-colors duration-300 group`}>
                                         <div className="flex flex-col gap-2">
-                                            <div className="flex items-center gap-2 mb-2 text-gray-400 font-mono text-sm">
+                                            <div className="flex items-center gap-2 mb-1 text-gray-400 font-mono text-sm">
                                                 <Calendar size={14} className={isEven ? "text-[#00f3ff]" : "text-[#9d00ff]"} /> {item.year}
                                             </div>
-                                            <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-shadow-md transition-all">
+                                            <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white">
                                                 {item.institution}
                                             </h3>
-                                            <p className="text-[#00f3ff]/90 text-sm md:text-base flex justify-start items-center gap-2 font-medium">
+                                            <p className="text-[#00f3ff]/90 text-sm sm:text-base flex items-center gap-2 font-medium">
                                                 <GraduationCap size={16} /> {item.degree}
                                             </p>
-                                            <p className="text-gray-400 mt-2 font-light flex justify-start items-center gap-2">
+                                            <p className="text-gray-400 mt-1 font-light flex items-center gap-2 text-sm sm:text-base">
                                                 <TrendingUp size={16} className={isEven ? "text-[#00f3ff]" : "text-[#9d00ff]"} /> Score: {item.score}
                                             </p>
                                         </div>

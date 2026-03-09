@@ -76,7 +76,6 @@ export default function HeroSection() {
         }
     }
 
-    // Typewriter effect approach
     const subtitle = "Computer Science Engineering Student | Developer"
 
     return (
@@ -96,7 +95,7 @@ export default function HeroSection() {
                 variants={containerVars}
                 initial="hidden"
                 animate="visible"
-                className="relative z-10 flex flex-col items-center text-center px-4 max-w-4xl"
+                className="relative z-10 flex flex-col items-center text-center px-4 sm:px-6 max-w-4xl w-full"
             >
                 <motion.div variants={itemVars} className="mb-4 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 glass">
                     <MapPin size={14} className="text-[#00f3ff]" />
@@ -105,38 +104,38 @@ export default function HeroSection() {
 
                 <motion.h1
                     variants={itemVars}
-                    className="text-5xl md:text-8xl font-bold tracking-tighter mb-6 neon-text"
+                    className="text-4xl sm:text-6xl md:text-8xl font-bold tracking-tighter mb-6 neon-text"
                 >
                     Vishal Saini
                 </motion.h1>
 
-                <motion.div variants={itemVars} className="h-8 md:h-12 mb-8">
+                <motion.div variants={itemVars} className="h-auto mb-8 w-full max-w-xl px-2">
                     <motion.div
                         initial={{ width: 0 }}
                         animate={{ width: "100%" }}
                         transition={{ duration: 2, ease: "easeOut", delay: 1 }}
-                        className="overflow-hidden whitespace-nowrap border-r-2 border-[#00f3ff] pr-1"
-                        style={{ display: "inline-block" }}
+                        className="overflow-hidden whitespace-nowrap border-r-2 border-[#00f3ff] pr-1 mx-auto"
+                        style={{ display: "inline-block", maxWidth: "100%" }}
                     >
-                        <p className="text-lg md:text-3xl text-gray-400 font-light">
+                        <p className="text-base sm:text-lg md:text-2xl text-gray-400 font-light">
                             {subtitle}
                         </p>
                     </motion.div>
                 </motion.div>
 
-                <motion.div variants={itemVars} className="flex flex-wrap gap-4 justify-center mt-4">
-                    <a href="#projects" className="interactive group relative px-6 py-3 rounded-md overflow-hidden bg-white text-black font-semibold tracking-wide transition-all hover:scale-105 active:scale-95 flex items-center gap-2">
+                <motion.div variants={itemVars} className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center mt-4 w-full px-2">
+                    <a href="#projects" className="interactive group relative px-5 py-3 rounded-md overflow-hidden bg-white text-black font-semibold tracking-wide transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2 w-full sm:w-auto">
                         <span className="relative z-10 flex items-center gap-2 group-hover:text-white transition-colors duration-300">
                             <FolderGit2 size={18} /> View Projects
                         </span>
                         <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-[#00f3ff] to-[#9d00ff] -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out z-0"></div>
                     </a>
 
-                    <a href="/Vishal_Resume.pdf" download className="interactive group px-6 py-3 rounded-md border border-white/20 glass text-white font-semibold flex items-center gap-2 hover:border-[#00f3ff] hover:shadow-[0_0_15px_rgba(0,243,255,0.5)] transition-all hover:-translate-y-1">
+                    <a href="/Vishal_Resume.pdf" download className="interactive group px-5 py-3 rounded-md border border-white/20 glass text-white font-semibold flex items-center justify-center gap-2 hover:border-[#00f3ff] hover:shadow-[0_0_15px_rgba(0,243,255,0.5)] transition-all hover:-translate-y-1 w-full sm:w-auto">
                         <Download size={18} /> Download Resume
                     </a>
 
-                    <a href="#contact" className="interactive group px-6 py-3 rounded-md border border-white/20 glass text-white font-semibold flex items-center gap-2 hover:border-[#9d00ff] hover:shadow-[0_0_15px_rgba(157,0,255,0.5)] transition-all hover:-translate-y-1">
+                    <a href="#contact" className="interactive group px-5 py-3 rounded-md border border-white/20 glass text-white font-semibold flex items-center justify-center gap-2 hover:border-[#9d00ff] hover:shadow-[0_0_15px_rgba(157,0,255,0.5)] transition-all hover:-translate-y-1 w-full sm:w-auto">
                         <Mail size={18} /> Contact Me
                     </a>
                 </motion.div>
@@ -146,9 +145,9 @@ export default function HeroSection() {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 2, duration: 1, repeat: Infinity, repeatType: "reverse" }}
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/50"
+                className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50"
             >
-                <ArrowDown size={32} />
+                <ArrowDown size={28} />
             </motion.div>
         </div>
     )

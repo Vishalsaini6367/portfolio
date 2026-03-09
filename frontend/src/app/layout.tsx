@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/SmoothScroll";
@@ -8,7 +8,13 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Vishal Saini - Portfolio",
-  description: "Modern animated developer portfolio with 3D effects",
+  description: "B.Tech Computer Science student & developer from Jaipur, Rajasthan. Explore my projects, skills, and contact info.",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({
