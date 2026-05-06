@@ -109,11 +109,11 @@ export default function HeroSection() {
                     Vishal Saini
                 </motion.h1>
 
-                <motion.div variants={itemVars} className="h-auto mb-8 w-full flex justify-center px-4">
-                    <div className="relative inline-flex max-w-full">
+                <motion.div variants={itemVars} className="h-auto mb-8 w-full flex justify-center px-1 sm:px-4">
+                    <div className="relative inline-flex justify-center max-w-full">
                         {/* Invisible placeholder: we add pr-4 here to ensure it's slightly wider than the text, 
                             so the 100% overlay has plenty of room and doesn't cut off the final letter via overflow-hidden. */}
-                        <p className="text-sm sm:text-base md:text-xl lg:text-2xl text-transparent select-none font-light pr-4 whitespace-nowrap">
+                        <p className="text-[10.5px] min-[360px]:text-[11.5px] min-[400px]:text-[13px] sm:text-base md:text-xl lg:text-2xl text-transparent select-none font-light pr-2 md:pr-4 whitespace-nowrap">
                             {subtitle}
                         </p>
                         {/* Animated visible text overlay */}
@@ -123,7 +123,7 @@ export default function HeroSection() {
                             transition={{ duration: 2, ease: "easeOut", delay: 1 }}
                             className="absolute top-0 left-0 h-full overflow-hidden whitespace-nowrap border-r-2 border-[#00f3ff]"
                         >
-                            <p className="text-sm sm:text-base md:text-xl lg:text-2xl text-gray-400 font-light whitespace-nowrap">
+                            <p className="text-[10.5px] min-[360px]:text-[11.5px] min-[400px]:text-[13px] sm:text-base md:text-xl lg:text-2xl text-gray-400 font-light whitespace-nowrap">
                                 {subtitle}
                             </p>
                         </motion.div>
