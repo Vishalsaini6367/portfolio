@@ -109,18 +109,25 @@ export default function HeroSection() {
                     Vishal Saini
                 </motion.h1>
 
-                <motion.div variants={itemVars} className="h-auto mb-8 w-full max-w-xl px-2">
-                    <motion.div
-                        initial={{ width: 0 }}
-                        animate={{ width: "100%" }}
-                        transition={{ duration: 2, ease: "easeOut", delay: 1 }}
-                        className="overflow-hidden whitespace-nowrap border-r-2 border-[#00f3ff] pr-1 mx-auto"
-                        style={{ display: "inline-block", maxWidth: "100%" }}
-                    >
-                        <p className="text-base sm:text-lg md:text-2xl text-gray-400 font-light">
+                <motion.div variants={itemVars} className="h-auto mb-8 w-full flex justify-center px-4">
+                    <div className="relative inline-flex max-w-full">
+                        {/* Invisible placeholder: we add pr-4 here to ensure it's slightly wider than the text, 
+                            so the 100% overlay has plenty of room and doesn't cut off the final letter via overflow-hidden. */}
+                        <p className="text-sm sm:text-base md:text-xl lg:text-2xl text-transparent select-none font-light pr-4 whitespace-nowrap">
                             {subtitle}
                         </p>
-                    </motion.div>
+                        {/* Animated visible text overlay */}
+                        <motion.div
+                            initial={{ width: 0 }}
+                            animate={{ width: "100%" }}
+                            transition={{ duration: 2, ease: "easeOut", delay: 1 }}
+                            className="absolute top-0 left-0 h-full overflow-hidden whitespace-nowrap border-r-2 border-[#00f3ff]"
+                        >
+                            <p className="text-sm sm:text-base md:text-xl lg:text-2xl text-gray-400 font-light whitespace-nowrap">
+                                {subtitle}
+                            </p>
+                        </motion.div>
+                    </div>
                 </motion.div>
 
                 <motion.div variants={itemVars} className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center mt-4 w-full px-2">
